@@ -26,5 +26,5 @@ FROM alpine:3.15 as runner
 RUN apk --no-cache add ca-certificates
 WORKDIR /src
 COPY --from=builder . ./
-CMD ["node", "./dist/infoSystem.js"]
+CMD ["node", "/dist/server.js"]
 
