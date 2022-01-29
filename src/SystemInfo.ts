@@ -53,7 +53,7 @@ export async function all_result() {
         result.push(await si.networkInterfaces());
         return result
     } catch (e) {
-        console.log(e)
+        //console.log(e)
     }
 }
 
