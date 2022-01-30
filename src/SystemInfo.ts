@@ -43,14 +43,15 @@ si.networkInterfaces()
 export async function all_result() {
     try {
         const result = [];
-        result.push(await si.cpu());
-        result.push(await si.mem());
-        result.push(await si.system());
-        result.push(await si.osInfo());
-        result.push(await si.currentLoad());
-        result.push(await si.processes());
-        result.push(await si.diskLayout());
-        result.push(await si.networkInterfaces());
+        result.push("Hello Ayman")
+        // result.push(await si.cpu());
+        // result.push(await si.mem());
+        // result.push(await si.system());
+        // result.push(await si.osInfo());
+        // result.push(await si.currentLoad());
+        // result.push(await si.processes());
+        // result.push(await si.diskLayout());
+        // result.push(await si.networkInterfaces());
         return result
     } catch (e) {
         //console.log(e)
