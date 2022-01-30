@@ -1,12 +1,12 @@
 FROM alpine:3.15 as builder
 
-WORKDIR /src
+WORKDIR /projet-cloud
 
 
 
 #RUN apk add --update nodejs npm 
-
-RUN apk update && apk add nodejs npm
+RUN apk add --update nodejs npm && apk add --update npm
+#RUN apk update && apk add nodejs npm
 
 # RUN npm install && npm run fix && npm run test\
 #     npm run test:coverage
@@ -20,11 +20,10 @@ RUN npm install
 RUN npm run build
 
 # CMD [ "node", "-v"]
-CMD ["node","./dist/server.js"]
+#CMD ["node","./dist/server.js"]
 
 FROM alpine:3.15 as runner
 RUN apk --no-cache add ca-certificates
-WORKDIR /src
-COPY --from=builder . ./
-CMD ["node", "/dist/server.js"]
 
+COPY --from=builder . ./
+CMD ["node", "/projet-cloud/dist/server.js"]
