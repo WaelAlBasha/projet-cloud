@@ -21,7 +21,7 @@ const requestListener = async function (req, res) {
 }
 
 const server = http.createServer(requestListener);
-server.listen(process.env.PORT || port);
+server.listen(process.env.PORT);
 
 
 // var http = require('http');
