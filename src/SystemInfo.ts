@@ -1,21 +1,21 @@
-const si = require('systeminformation');
 
 
 
-let result = null;
 
-const valueObject = {
-    cpu: '*',
-    system: '*',
-    mem: '*',
-    osInfo: '*',
-    currentLoad: '*',
-    processes: '*',
-    diskLayout: '*',
-    networkInterfaces: '*'
-}
+// let result = null;
 
-si.get(valueObject).then(data => result = data);
+// const valueObject = {
+//     cpu: '*',
+//     system: '*',
+//     mem: '*',
+//     osInfo: '*',
+//     currentLoad: '*',
+//     processes: '*',
+//     diskLayout: '*',
+//     networkInterfaces: '*'
+// }
+
+// si.get(valueObject).then(data => result = data);
 
 // // callback style
 // si.cpu(function (data) {
@@ -59,6 +59,7 @@ si.get(valueObject).then(data => result = data);
 // full async / await example (node >= 7.6)
 export async function all_result() {
     try {
+        const si = require('systeminformation');
         let result = null;
 
         const valueObject = {
