@@ -1,56 +1,79 @@
 const si = require('systeminformation');
 
-// callback style
-si.cpu(function (data) {
-    console.log('CPU-Information:');
-    console.log(data);
-});
 
-// promises style - new in version 3
-si.cpu()
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
 
-si.mem()
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
+let result = null;
 
-si.system()
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
+const valueObject = {
+    cpu: '*',
+    system: '*',
+    mem: '*',
+    osInfo: '*',
+    currentLoad: '*',
+    processes: '*',
+    diskLayout: '*',
+    networkInterfaces: '*'
+}
 
-si.osInfo()
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
+si.get(valueObject).then(data => result = data);
 
-si.currentLoad()
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
+// // callback style
+// si.cpu(function (data) {
+//     console.log('CPU-Information:');
+//     console.log(data);
+// });
 
-si.processes()
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
+// // promises style - new in version 3
+// si.cpu()
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error));
 
-si.diskLayout()
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
+// si.mem()
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error));
 
-si.networkInterfaces()
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
+// si.system()
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error));
+
+// si.osInfo()
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error));
+
+// si.currentLoad()
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error));
+
+// si.processes()
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error));
+
+// si.diskLayout()
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error));
+
+// si.networkInterfaces()
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error));
 
 // full async / await example (node >= 7.6)
 export async function all_result() {
     try {
-        const result = [];
-        result.push(await si.cpu());
-        result.push(await si.mem());
-        result.push(await si.system());
-        result.push(await si.osInfo());
-        result.push(await si.currentLoad());
-        result.push(await si.processes());
-        result.push(await si.diskLayout());
-        result.push(await si.networkInterfaces());
+        let result = null;
+
+        const valueObject = {
+            cpu: '*',
+            system: '*',
+            mem: '*',
+            osInfo: '*',
+            currentLoad: '*',
+            processes: '*',
+            diskLayout: '*',
+            networkInterfaces: '*'
+        }
+
+        si.get(valueObject).then(data => result = data);
+
         return result
     } catch (e) {
         //console.log(e)
