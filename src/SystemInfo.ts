@@ -4,6 +4,8 @@
 
 // let result = null;
 
+import { printer } from "systeminformation";
+
 // const valueObject = {
 //     cpu: '*',
 //     system: '*',
@@ -60,7 +62,7 @@
 export async function all_result() {
     try {
         const si = require('systeminformation');
-        let result = null;
+        let result = [];
 
         const valueObject = {
             cpu: '*',
@@ -73,7 +75,8 @@ export async function all_result() {
             networkInterfaces: '*'
         }
 
-        si.get(valueObject).then(data => result = data);
+        result = si.get(valueObject);
+        //result.push(si.get(valueObject));
 
         return result
     } catch (e) {
